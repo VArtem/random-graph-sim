@@ -7,19 +7,24 @@ public class DSU {
     public int[] rank;
     public boolean[] isTree;
     public int[] size;
+    public double[] prob;
     public int sets;
+    public int maxId;
 
     public DSU(int n) {
+
         parent = new int[n];
         rank = new int[n];
         size = new int[n];
         isTree = new boolean[n];
+        prob = new double[n];
         Arrays.fill(isTree, true);
         Arrays.fill(size, 1);
         for (int i = 0; i < n; i++) {
             parent[i] = i;
         }
         this.sets = n;
+        this.maxId = 0;
     }
 
     public int get(int v) {
@@ -40,14 +45,17 @@ public class DSU {
         if (rank[u] == rank[v]) {
             rank[u]++;
         }
-        if (rank[u] > rank[v]) {
-            parent[v] = u;
-            size[u] += size[v];
-            isTree[u] &= isTree[v];
-        } else {
-            parent[u] = v;
-            size[v] += size[u];
-            isTree[v] &= isTree[u];
+        if (rank[u] < rank[v]) {
+            int tmp = u;
+            u = v;
+            v = tmp;
+        }
+        parent[v] = u;
+        size[u] += size[v];
+        prob[u] += prob[v];
+        isTree[u] &= isTree[v];
+        if (size[maxId] < size[u]) {
+            maxId = u;
         }
         return true;
     }
@@ -56,6 +64,8 @@ public class DSU {
         Arrays.fill(rank, 0);
         Arrays.fill(size, 1);
         Arrays.fill(isTree, true);
+        Arrays.fill(prob, 0);
+        maxId = 0;
         for (int i = 0; i < parent.length; i++) {
             parent[i] = i;
         }
