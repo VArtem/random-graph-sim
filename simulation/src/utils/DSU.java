@@ -1,9 +1,11 @@
+package utils;
+
 import java.util.Arrays;
 
 public class DSU {
-    int[] parent;
-    int[] rank;
-    boolean[] isTree;
+    public int[] parent;
+    public int[] rank;
+    public boolean[] isTree;
     public int[] size;
     public int sets;
 
