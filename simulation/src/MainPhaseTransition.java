@@ -24,6 +24,7 @@ public class MainPhaseTransition {
             System.err.println("IT = " + IT);
             dsu.reset();
             Dirichlet d = new Dirichlet(n, rng);
+            d.makeUniform();
             for (int i = 0; i < n; i++) {
                 dsu.prob[i] = d.p[i];
             }
@@ -38,8 +39,8 @@ public class MainPhaseTransition {
             }
         }
 
-        Stat.printStats(maxSize, String.format("n%d.size.txt", n));
-        Stat.printStats(maxSizeProb, String.format("n%d.prob.txt", n));
+        Stat.printStats(maxSize, String.format("n%d.uniform.size.txt", n));
+        Stat.printStats(maxSizeProb, String.format("n%d.uniform.prob.txt", n));
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Dirichlet {
     public double[] p;
-    double[] prefix;
+    public double[] prefix;
 
     public Dirichlet(int n, Random rng) {
         p = new double[n];
@@ -38,5 +38,12 @@ public class Dirichlet {
             }
         }
         return right;
+    }
+
+    public void makeUniform() {
+        for (int i = 0; i < p.length; i++) {
+            p[i] = 1.0 / p.length;
+            prefix[i] = (i + 1.0) / p.length;
+        }
     }
 }

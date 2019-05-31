@@ -1,0 +1,240 @@
+n = 2, a = 1, b = 1
+1 edges => 1
+n = 3, a = 1, b = 2
+1 edges => 2
+2 edges => 1
+n = 3, a = 2, b = 1
+1 edges => 2
+2 edges => 1
+n = 4, a = 1, b = 3
+1 edges => 9
+2 edges => 6
+3 edges => 1
+n = 4, a = 2, b = 2
+1 edges => 4
+2 edges => 8
+3 edges => 4
+n = 4, a = 3, b = 1
+1 edges => 9
+2 edges => 6
+3 edges => 1
+n = 5, a = 1, b = 4
+1 edges => 64
+2 edges => 48
+3 edges => 12
+4 edges => 1
+n = 5, a = 2, b = 3
+1 edges => 18
+2 edges => 51
+3 edges => 44
+4 edges => 12
+n = 5, a = 3, b = 2
+1 edges => 18
+2 edges => 51
+3 edges => 44
+4 edges => 12
+n = 5, a = 4, b = 1
+1 edges => 64
+2 edges => 48
+3 edges => 12
+4 edges => 1
+n = 6, a = 1, b = 5
+1 edges => 625
+2 edges => 500
+3 edges => 150
+4 edges => 20
+5 edges => 1
+n = 6, a = 2, b = 4
+1 edges => 128
+2 edges => 448
+3 edges => 480
+4 edges => 208
+5 edges => 32
+n = 6, a = 3, b = 3
+1 edges => 81
+2 edges => 324
+3 edges => 486
+4 edges => 324
+5 edges => 81
+n = 6, a = 4, b = 2
+1 edges => 128
+2 edges => 448
+3 edges => 480
+4 edges => 208
+5 edges => 32
+n = 6, a = 5, b = 1
+1 edges => 625
+2 edges => 500
+3 edges => 150
+4 edges => 20
+5 edges => 1
+n = 7, a = 1, b = 6
+1 edges => 7776
+2 edges => 6480
+3 edges => 2160
+4 edges => 360
+5 edges => 30
+6 edges => 1
+n = 7, a = 2, b = 5
+1 edges => 1250
+2 edges => 5125
+3 edges => 6200
+4 edges => 3320
+5 edges => 832
+6 edges => 80
+n = 7, a = 3, b = 4
+1 edges => 576
+2 edges => 2832
+3 edges => 5452
+4 edges => 5139
+5 edges => 2376
+6 edges => 432
+n = 7, a = 4, b = 3
+1 edges => 576
+2 edges => 2832
+3 edges => 5452
+4 edges => 5139
+5 edges => 2376
+6 edges => 432
+n = 7, a = 5, b = 2
+1 edges => 1250
+2 edges => 5125
+3 edges => 6200
+4 edges => 3320
+5 edges => 832
+6 edges => 80
+n = 7, a = 6, b = 1
+1 edges => 7776
+2 edges => 6480
+3 edges => 2160
+4 edges => 360
+5 edges => 30
+6 edges => 1
+n = 8, a = 1, b = 7
+1 edges => 117649
+2 edges => 100842
+3 edges => 36015
+4 edges => 6860
+5 edges => 735
+6 edges => 42
+7 edges => 1
+n = 8, a = 2, b = 6
+1 edges => 15552
+2 edges => 72576
+3 edges => 95040
+4 edges => 57600
+5 edges => 18240
+6 edges => 2944
+7 edges => 192
+n = 8, a = 3, b = 5
+1 edges => 5625
+2 edges => 32250
+3 edges => 72775
+4 edges => 82860
+5 edges => 50679
+6 edges => 15930
+7 edges => 2025
+n = 8, a = 4, b = 4
+1 edges => 4096
+2 edges => 24576
+3 edges => 61440
+4 edges => 81920
+5 edges => 61440
+6 edges => 24576
+7 edges => 4096
+n = 8, a = 5, b = 3
+1 edges => 5625
+2 edges => 32250
+3 edges => 72775
+4 edges => 82860
+5 edges => 50679
+6 edges => 15930
+7 edges => 2025
+n = 8, a = 6, b = 2
+1 edges => 15552
+2 edges => 72576
+3 edges => 95040
+4 edges => 57600
+5 edges => 18240
+6 edges => 2944
+7 edges => 192
+n = 8, a = 7, b = 1
+1 edges => 117649
+2 edges => 100842
+3 edges => 36015
+4 edges => 6860
+5 edges => 735
+6 edges => 42
+7 edges => 1
+n = 9, a = 1, b = 8
+1 edges => 2097152
+2 edges => 1835008
+3 edges => 688128
+4 edges => 143360
+5 edges => 17920
+6 edges => 1344
+7 edges => 56
+8 edges => 1
+n = 9, a = 2, b = 7
+1 edges => 235298
+2 edges => 1226911
+3 edges => 1699908
+4 edges => 1118180
+5 edges => 407680
+6 edges => 85008
+7 edges => 9536
+8 edges => 448
+n = 9, a = 3, b = 6
+1 edges => 69984
+2 edges => 454896
+3 edges => 1154736
+4 edges => 1487160
+5 edges => 1071630
+6 edges => 439587
+7 edges => 96228
+8 edges => 8748
+n = 9, a = 4, b = 5
+1 edges => 40000
+2 edges => 278000
+3 edges => 821100
+4 edges => 1336045
+5 edges => 1293584
+6 edges => 745440
+7 edges => 236800
+8 edges => 32000
+n = 9, a = 5, b = 4
+1 edges => 40000
+2 edges => 278000
+3 edges => 821100
+4 edges => 1336045
+5 edges => 1293584
+6 edges => 745440
+7 edges => 236800
+8 edges => 32000
+n = 9, a = 6, b = 3
+1 edges => 69984
+2 edges => 454896
+3 edges => 1154736
+4 edges => 1487160
+5 edges => 1071630
+6 edges => 439587
+7 edges => 96228
+8 edges => 8748
+n = 9, a = 7, b = 2
+1 edges => 235298
+2 edges => 1226911
+3 edges => 1699908
+4 edges => 1118180
+5 edges => 407680
+6 edges => 85008
+7 edges => 9536
+8 edges => 448
+n = 9, a = 8, b = 1
+1 edges => 2097152
+2 edges => 1835008
+3 edges => 688128
+4 edges => 143360
+5 edges => 17920
+6 edges => 1344
+7 edges => 56
+8 edges => 1
