@@ -1,4 +1,6 @@
-import utils.DSU;
+package experiments;
+
+import utils.ds.DSU;
 import utils.Models;
 
 public class MainCovariance {

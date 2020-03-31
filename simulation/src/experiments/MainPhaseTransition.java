@@ -1,4 +1,7 @@
+package experiments;
+
 import utils.*;
+import utils.ds.DSU;
 
 import java.util.Random;
 

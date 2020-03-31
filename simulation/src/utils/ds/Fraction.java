@@ -1,4 +1,4 @@
-package bipartite;
+package utils.ds;
 
 import java.math.BigInteger;
 

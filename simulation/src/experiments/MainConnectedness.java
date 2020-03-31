@@ -1,8 +1,7 @@
-import utils.DSU;
-import utils.Models;
-import utils.Utils;
+package experiments;
 
-import java.util.Arrays;
+import utils.ds.DSU;
+import utils.Utils;
 
 public class MainConnectedness {
 

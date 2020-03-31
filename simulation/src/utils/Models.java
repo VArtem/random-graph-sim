@@ -1,5 +1,7 @@
 package utils;
 
+import utils.ds.DSU;
+
 public class Models {
     public static double[] secondModel(DSU dsu, int n, int k) {
         dsu.reset();
