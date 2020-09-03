@@ -1,7 +1,7 @@
 package experiments;
 
-import utils.*;
-import utils.ds.DSU;
+import probability.*;
+import bipartite.ds.DSU;
 
 import java.util.Random;
 

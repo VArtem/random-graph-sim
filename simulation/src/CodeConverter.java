@@ -1,5 +1,6 @@
 import bipartite.DandelionCode;
-import bipartite.Edge;
+import bipartite.graph.Edge;
+import bipartite.graph.Graph;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,11 +32,11 @@ public class CodeConverter {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        int[] code = DandelionCode.fromEdges(n,edges);
+        DandelionCode code = new DandelionCode(new Graph(n,edges));
         try (PrintWriter out = new PrintWriter(new File(args[1]))) {
             out.println("digraph {");
             for (int i = 0; i < n; i++) {
-                out.printf("\t%d -> %d\n", i + 1, code[i] + 1);
+                out.printf("\t%d -> %d\n", i + 1, code.get(i) + 1);
             }
             out.println("}");
         } catch (FileNotFoundException e) {

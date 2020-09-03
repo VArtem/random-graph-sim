@@ -1,7 +1,7 @@
 package experiments;
 
-import utils.ds.DSU;
-import utils.Models;
+import bipartite.ds.DSU;
+import probability.Models;
 
 public class MainIsolatedIntensity {
 

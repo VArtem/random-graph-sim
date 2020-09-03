@@ -1,8 +1,8 @@
 package experiments;
 
-import utils.ds.DSU;
-import utils.Models;
-import utils.Utils;
+import bipartite.ds.DSU;
+import probability.Models;
+import probability.Utils;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

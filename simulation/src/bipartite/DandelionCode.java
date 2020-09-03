@@ -1,31 +1,24 @@
 package bipartite;
 
-import java.util.ArrayList;
+import bipartite.graph.Graph;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class DandelionCode {
 
-    public static int[] fromEdges(int n, List<Edge> edges) {
-        List<Integer>[] graph = new List[n];
-        for (int i = 0; i < n; i++) {
-            graph[i] = new ArrayList<>();
-        }
-        for (Edge e : edges) {
-            graph[e.from].add(e.to);
-            graph[e.to].add(e.from);
-        }
-        List<Integer> path = findPath(graph, 0, n - 1, -1);
-        boolean[] used = new boolean[n];
-        for (int i : path) {
-            used[i] = true;
-        }
-        int[] code = new int[n];
-        for (int i : path) {
-            fillNonCycleVertices(graph, used, code, i);
-        }
+    int[] code;
 
+    public DandelionCode(int[] code) {
+        this.code = code.clone();
+    }
+
+    public DandelionCode(Graph graph) {
+        int n = graph.size();
+        this.code = new int[graph.size()];
+        List<Integer> path = graph.findPath(0, n - 1, -1);
+        graph.codeForNonCycleVertices(code, path);
         pathIntoCycles(code, path, 0, path.size() - 1);
-        return code;
     }
 
     private static void pathIntoCycles(int[] code, List<Integer> path, int l, int r) {
@@ -45,33 +38,41 @@ public class DandelionCode {
         pathIntoCycles(code, path, minPos + 1, r);
     }
 
-    private static List<Integer> findPath(List<Integer>[] graph, int u, int finish, int p) {
-        if (u == finish) {
-            List<Integer> path = new ArrayList<>();
-            path.add(u);
-            return path;
-        }
-        for (int v : graph[u]) {
-            if (v != p) {
-                List<Integer> ret = findPath(graph, v, finish, u);
-                if (ret != null) {
-                    ret.add(0, u);
-                    return ret;
-                }
-            }
-        }
-        return null;
+    @Override
+    public String toString() {
+        return "DandelionCode{" +
+                "code=" + Arrays.toString(code) +
+                '}';
     }
 
-    private static void fillNonCycleVertices(List<Integer>[] graph, boolean[] used, int[] code, int i) {
-        used[i] = true;
-        for (int j : graph[i]) {
-            if (!used[j]) {
-                code[j] = i;
-                fillNonCycleVertices(graph, used, code, j);
-            }
-        }
+    public int get(int i) {
+        return code[i];
     }
 
+    public boolean checkValidity(int leftSize, int checkI, int checkJ) {
+        boolean ok = true;
+        int n = code.length;
+        ok &= code[0] == 0;
+        ok &= code[n - 1] == n - 1;
 
+        int cnt = 0;
+        for (int i = 1; i < leftSize; i++) {
+            if (code[i] < leftSize) {
+                cnt++;
+            }
+        }
+        ok &= cnt == checkI;
+        cnt = 0;
+        for (int i = leftSize; i < n - 1; i++) {
+            if (code[i] >= leftSize) {
+                cnt++;
+            }
+        }
+        ok &= cnt == checkJ;
+        return ok;
+    }
+
+    public int length() {
+        return code.length;
+    }
 }

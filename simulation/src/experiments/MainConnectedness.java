@@ -1,7 +1,7 @@
 package experiments;
 
-import utils.ds.DSU;
-import utils.Utils;
+import bipartite.ds.DSU;
+import probability.Utils;
 
 public class MainConnectedness {
 

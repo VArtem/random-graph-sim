@@ -1,17 +1,20 @@
 package bipartite;
 
-import utils.ds.RollbackDSU;
+import bipartite.graph.Edge;
+import bipartite.ds.RollbackDSU;
+import bipartite.graph.Graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static bipartite.Utils.factorize;
+
 public class TreeSimulation {
 
     final int checkI = 1;
     final int checkJ = 1;
-
 
     RollbackDSU dsu;
     long[][] result;
@@ -29,12 +32,12 @@ public class TreeSimulation {
         }
     }
 
-    List<int[]> codes = new ArrayList<>();
+    List<DandelionCode> codes = new ArrayList<>();
 
     void go(int i, int j, List<Edge> edges, int inFirstCluster, int inSecondCluster) {
         if (edges.size() == n - 1) {
             if (inFirstCluster == checkI && inSecondCluster == checkJ) {
-                int[] code = DandelionCode.fromEdges(n, edges);
+                DandelionCode code = new DandelionCode(new Graph(n, edges));
                 codes.add(code);
             }
             result[inFirstCluster][inSecondCluster]++;
@@ -76,8 +79,8 @@ public class TreeSimulation {
         }
         Collections.sort(codes, (a1, a2) -> {
             for (int i = 0; i < n; i++) {
-                if (a1[i] != a2[i] ){
-                    return Integer.compare(a1[i], a2[i]);
+                if (a1.get(i) != a2.get(i)){
+                    return Integer.compare(a1.get(i), a2.get(i));
                 }
             }
             return 0;
@@ -86,57 +89,19 @@ public class TreeSimulation {
     }
 
     private void checkCodeValidity(int leftSize) {
-        for (int[] code : codes) {
-            boolean ok = true;
-            ok &= code[0] == 0;
-            ok &= code[n - 1] == n - 1;
-
-            int cnt = 0;
-            for (int i = 1; i < leftSize; i++) {
-                if (code[i] < leftSize) {
-                    cnt++;
-                }
-            }
-            ok &= cnt == checkI;
-            cnt = 0;
-            for (int i = leftSize; i < n - 1; i++) {
-                if (code[i] >= leftSize) {
-                    cnt++;
-                }
-            }
-            ok &= cnt == checkJ;
+        for (DandelionCode code : codes) {
+            boolean ok = code.checkValidity(leftSize, checkI, checkJ);
             if (!ok) {
-                System.err.println(Arrays.toString(code));
+                System.err.println(code);
             }
         }
-    }
-
-    String factorize(long x) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 2; i * i <= x; i++) {
-            if (x % i == 0) {
-                int exp = 0;
-                while (x % i == 0) {
-                    x /= i;
-                    exp++;
-                }
-                appendPrimePower(result, i, exp);
-            }
-        }
-        if (x > 1) {
-            appendPrimePower(result, x, 1);
-        }
-        return result.toString();
-    }
-
-    private void appendPrimePower(StringBuilder result, long prime, int exp) {
-        if (result.length() > 0) {
-            result.append(" * ");
-        }
-        result.append(prime).append("^").append(exp);
     }
 
     public static void main(String[] args) {
+        runTSVFormat();
+    }
+
+    static void runTSVFormat() {
         System.out.println("n\ta\tb\tfst\tsnd\tcnt\tformula");
         for (int n = 9; n <= 9; n++) {
             for (int a = 3; a <= 3; a++) {
